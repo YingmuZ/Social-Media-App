@@ -15,7 +15,7 @@ export const createPost = async (req, res) => {
             userPicturePath: user.picturePath,
             picturePath,
             likes: {},
-            comments: []
+            comments: [],
         })
         await newPost.save();
 
@@ -24,7 +24,7 @@ export const createPost = async (req, res) => {
     } catch (err) {
         res.status(409).json({ message: err.message })
     }
-}
+};
 
 /* read */
 export const getFeedPosts = async (req, res) => {
@@ -32,9 +32,9 @@ export const getFeedPosts = async (req, res) => {
         const post = await Post.find();
         res.status(200).json(post);
     } catch (err) {
-        res.status(404).json({ message: err.message })
+        res.status(404).json({ message: err.message });
     }
-}
+};
 
 export const getUserPosts = async (req, res) => {
     try {
@@ -42,9 +42,9 @@ export const getUserPosts = async (req, res) => {
         const post = await Post.find({ userId });
         res.status(200).json(post);
     } catch (err) {
-        res.status(404).json({ message: err.message })
+        res.status(404).json({ message: err.message });
     }
-}
+};
 
 /* update */
 export const likePost = async (req, res) => {
@@ -68,6 +68,6 @@ export const likePost = async (req, res) => {
 
         res.status(200).json(updatedPost);
     } catch (err) {
-        res.status(404).json({ message: err.message })
+        res.status(404).json({ message: err.message });
     }
-}
+};
